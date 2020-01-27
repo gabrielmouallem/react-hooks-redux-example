@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+
+import store from './store' //Disponibilizamos o store de forma global para a aplicação
+
+import CourseList from './components/CourseList'
 
 function App() {
+
+  /*
+    <Provider store={store}>
+
+    Com  isso todos os elementos do App
+    que  estiverem  dentro  do provider
+    possuem  agora  acesso  ao   store.
+
+    O que irá  mudar  com os  Hooks será
+    a  forma  na  qual  iremos  consumir
+    as informações e disparar as actions.
+  */
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <CourseList />
+    </Provider>
   );
 }
 
